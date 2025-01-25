@@ -9,9 +9,10 @@ private:
     int pence;
 
 public:
+    OldBritishCurrency() : pounds(0), shillings(0), pence(0) {}
+
     void input() {
         char dot;
-        pounds = shillings = pence = 0;
         cout << "Enter amount (format: £pounds.shillings.pence): £";
         cin >> pounds >> dot >> shillings >> dot >> pence;
     }
@@ -20,8 +21,12 @@ public:
         cout << "£" << pounds << "." << shillings << "." << pence;
     }
 
-    void Calculate(OldBritishCurrency x1, OldBritishCurrency x2){
-        pence += (x1.pence+x2.pence)%
+    void Calculate(const OldBritishCurrency& x1, const OldBritishCurrency& x2) {
+        pence = x1.pence + x2.pence;
+        shillings = x1.shillings + x2.shillings + pence / 12;
+        pounds = x1.pounds + x2.pounds + shillings / 20;
+        pence %= 12;
+        shillings %= 20;
     }
 };
 
@@ -36,7 +41,7 @@ int main() {
         cout << "Enter second amount: ";
         amount2.input();
 
-        total = amount1.add(amount2);
+        total.Calculate(amount1, amount2);
 
         cout << "Total is ";
         total.display();
