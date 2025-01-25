@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 
 using namespace std;
 
@@ -11,7 +10,7 @@ int main() {
     cout << "Enter a number: ";
 
     while(c <= 6){
-        ch = getche();
+        ch = cin.get();
         num = num * 10 + (ch - '0');
         c++;
     }

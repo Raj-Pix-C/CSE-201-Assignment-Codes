@@ -31,7 +31,7 @@ class Calculator {
         char c;
         cout << endl << "Do another (y/n)? ";
         cin >> c;
-        if(c == 'y'){
+        if(c == 'y' || c == 'Y'){
             input();
         }
     }
