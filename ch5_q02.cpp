@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-double power(double n, int p = 2) {
+double power(double n, int p) {
     double result = 1.0;
     for (int i = 0; i < p; ++i) {
         result *= n;
@@ -11,8 +11,7 @@ double power(double n, int p = 2) {
 
 int main() {
     double n;
-    int p;
-
+    int p=2;
     cout << "Enter the base number: ";
     cin >> n;
 
