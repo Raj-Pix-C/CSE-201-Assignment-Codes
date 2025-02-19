@@ -12,8 +12,10 @@ public:
 };
 int main()
 {
-    Employee em;
-    em.getdata();
-    em.putdata();
+    Employee em[100];
+    for( int i = 0; i < 100; i++)
+    em[i].getdata();
+    for( int i = 0; i < 100; i++)
+    em[i].putdata();
     return 0;
 }
